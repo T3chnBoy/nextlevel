@@ -1,4 +1,6 @@
-/* HERO HOME */
+/* =========================
+   HERO HOME
+========================= */
 .hero-home {
     height: 35vh;
     display: flex;
@@ -29,6 +31,7 @@
     position: relative;
     z-index: 2;
 }
+
 /* =========================
    SECTION ENHANCEMENTS
 ========================= */
@@ -40,8 +43,12 @@
     margin-bottom: 2rem;
     font-size: 2.5rem;
     color: #203a43;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
-
+.section h2:hover {
+    color: #00c8ff;
+    transform: translateY(-3px);
+}
 .section h2::after {
     content: '';
     position: absolute;
@@ -55,23 +62,26 @@
 
 /* --- ABOUT US --- */
 #about {
-    background: #f9f9f9; /* leggero grigio per distinguere */
+    background: #f0f4f8; /* azzurro leggero */
     color: #111;
-    padding: 2rem 2rem;
+    padding: 1.5rem 2rem;
 }
 
 /* --- PROJECTS --- */
 #projects {
+    position: relative;
     background: url('../img/projects.jpg') no-repeat center center;
     background-size: cover;
+    padding: 3rem 2rem;
 }
 
-
-
+/* --- PROJECTS GRID --- */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2.5rem;
+    position: relative;
+    z-index: 1;
 }
 
 /* --- PROJECT CARDS --- */
@@ -83,22 +93,57 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
     border: 2px solid transparent;
 }
-
 .project-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px) scale(1.02);
     box-shadow: 0 0 25px #00c8ff99, 0 10px 20px rgba(0,0,0,0.2);
     border: 2px solid #00c8ff;
 }
-
 .project-card img {
     width: 100%;
     border-radius: 10px;
     margin-bottom: 1rem;
 }
 
+/* =========================
+   BUTTONS
+========================= */
+.btn-primary {
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px #00c8ff;
+}
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -5px; left: -5px; right: -5px; bottom: -5px;
+    border-radius: 50px;
+    box-shadow: 0 0 20px #00c8ff55;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.btn-primary:hover {
+    opacity: 0.9;
+    box-shadow: 0 0 15px #00c8ff, 0 0 25px #00c8ff55;
+}
+.btn-primary:hover::after { opacity: 1; }
 
+/* =========================
+   SECTIONS ANIMATION
+========================= */
+.section {
+    padding: 2rem 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease-out;
+}
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-/* --- RESPONSIVE TITOLI --- */
+/* =========================
+   RESPONSIVE TITOLI
+========================= */
 @media (max-width: 768px) {
     .section h2 { font-size: 2rem; }
 }

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NextLevelHost — Home</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style-home.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="container navbar-container">
+        <div class="logo"><a href="index.html">NextLevelHost</a></div>
+        <nav class="nav-links">
+            <a href="#" class="active">Home</a>
+            <a href="#about">About</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">Progetti ▾</a>
+                <div class="dropdown-content">
+                    <a href="#">This_Project</a>
+                    <a href="#">V6 PC Case</a>
+                    <br>
+                    <a href="#">Future Projects</a>
+                </div>
+            </div>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#minecraft">Minecraft</a>
+            <a href="#" class="disabled">Contacts</a>
+        </nav>
+        <form class="search-form">
+            <input type="text" placeholder="Search">
+            <button type="submit">Search</button>
+        </form>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</header>
+
+<section id="hero-home" class="hero-home">
+    <canvas id="hero-canvas-home"></canvas>
+    <div class="hero-content">
+        <h1>What is NextLevelHost?</h1>
+        <p>TechnoBoy's creative hub for Minecraft, tech projects, and more!</p>
+        <a href="#projects" class="btn btn-primary">Our Projects</a>
+    </div>
+</section>
+
+<section id="about" class="section">
+    <div class="container">
+        <h2>About Us</h2>
+        <p>NextLevelHost is a place where creativity meets technology. This is TechnoBoy's playground where he focuses on Minecraft, smart home setups, coding projects, and self-hosted solutions.</p>
+    </div>
+</section>
+
+<section id="projects" class="section">
+    <div class="container">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="img/project1.jpg" alt="Project 1">
+                <h3>Project 1</h3>
+                <p>Short description about Project 1</p>
+                <a href="projects/project1.html" class="btn btn-primary">View</a>
+            </div>
+            <div class="project-card">
+                <img src="img/project2.jpg" alt="Project 2">
+                <h3>Project 2</h3>
+                <p>Short description about Project 2</p>
+                <a href="projects/project2.html" class="btn btn-primary">View</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>&copy; 2025 NextLevelHost. All rights reserved.</p>
+</footer>
+
+<script>
+// MOBILE NAV TOGGLE
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.querySelector('.nav-links');
+const searchForm = document.querySelector('.search-form');
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    searchForm.classList.toggle('active');
+});
+
+// PARTICLE HERO
+const hero = document.getElementById('hero-home');
+const canvas = document.getElementById('hero-canvas-home');
+const ctx = canvas.getContext('2d');
+
+const words = ["<div>", "<span>", "<header>", "<footer>", "<section>", "<article>", "<nav>", "<aside>", "<h1>", "<h2>", "<h3>", "<p>", "<a>", "<ul>", "<li>", "<img>", "<button>", "<form>", "<input>", "<label>", "class", "void", "int", "double", "block", "item", "craft", "spawn", "mob", "redstone", "server", "host", "plugin", "dashboard", "ESP32", "RGB", "smartHome", "network", "nextLevel"];
+
+let particlesArray = [];
+
+function resizeCanvas() {
+    canvas.width = hero.offsetWidth;
+    canvas.height = hero.offsetHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.word = words[Math.floor(Math.random() * words.length)];
+        this.baseSize = Math.random() * 18 + 12;
+        this.size = this.baseSize;
+        this.sizeDirection = Math.random() > 0.5 ? 1 : -1;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
+        this.opacity = Math.random() * 0.5 + 0.3;
+    }
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.size += 0.05 * this.sizeDirection;
+        if(this.size > this.baseSize + 5 || this.size < this.baseSize - 5) this.sizeDirection *= -1;
+        if(this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if(this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+    }
+    draw() {
+        ctx.fillStyle = `rgba(0, 200, 255,${this.opacity})`;
+        ctx.font = `${this.size}px monospace`;
+        ctx.fillText(this.word, this.x, this.y);
+    }
+}
+function initParticles(count) {
+    particlesArray = [];
+    for(let i=0;i<count;i++) particlesArray.push(new Particle());
+}
+initParticles(80);
+function connectParticles() {
+    for(let a=0;a<particlesArray.length;a++){
+        for(let b=a+1;b<particlesArray.length;b++){
+            const dx = particlesArray[a].x - particlesArray[b].x;
+            const dy = particlesArray[a].y - particlesArray[b].y;
+            const distance = Math.sqrt(dx*dx + dy*dy);
+            if(distance < 150){
+                ctx.strokeStyle = `rgba(0,200,255,0.1)`;
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                ctx.stroke();
+            }
+        }
+    }
+}
+function animate() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particlesArray.forEach(p => { p.update(); p.draw(); });
+    connectParticles();
+    requestAnimationFrame(animate);
+}
+animate();
+
+// SCROLL ANIMATION
+const sections = document.querySelectorAll('.section');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.2 });
+sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>

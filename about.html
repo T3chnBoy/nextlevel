@@ -1,138 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NextLevelHost — Home</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NextLevelHost — About</title>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/style-about.css">
 </head>
 <body>
 
-<header class="navbar">
-    <div class="container navbar-container">
-        <div class="logo"><a href="index.html">NextLevelHost</a></div>
-        <nav class="nav-links">
-            <a href="home.html" class="active">Home</a>
-            <a href="about.html">About</a>
-            <div class="dropdown">
-                <a href="#" class="dropbtn">Progetti ▾</a>
-                <div class="dropdown-content">
-                    <a href="work_in_progress.html">This_Project</a>
-                    <a href="work_in_progress.html">V6 PC Case</a>
-                    <br>
-                    <a href="#">Future Projects</a>
-                </div>
-            </div>
-            <a href="work_in_progress.html">Portfolio</a>
-            <a href="work_in_progress.html">Minecraft</a>
-            <a href="#" class="disabled">Contacts</a>
-        </nav>
-        <form class="search-form">
-            <input type="text" placeholder="Search">
-            <button type="submit">Search</button>
-        </form>
-        <div class="hamburger" id="hamburger">
-            <span></span><span></span><span></span>
+<header class="navbar" role="banner">
+  <div class="container navbar-container">
+    <div class="logo"><a href="index.html">NextLevelHost</a></div>
+
+    <nav class="nav-links" role="navigation" aria-label="Main">
+      <a href="home.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <div class="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a href="#" class="dropbtn">Progetti ▾</a>
+        <div class="dropdown-content" role="menu" aria-label="Projects">
+          <a href="work_in_progress.html" role="menuitem">This_Project</a>
+          <a href="work_in_progress.html" role="menuitem">V6 PC Case</a>
+          <br>
+          <a href="#" role="menuitem">Future Projects</a>
         </div>
-    </div>
+      </div>
+      <a href="work_in_progress.html">Portfolio</a>
+      <a href="work_in_progress.html">Minecraft</a>
+      <a href="#" class="disabled" aria-disabled="true">Contacts</a>
+    </nav>
+
+    <form class="search-form" role="search" aria-label="Site search">
+      <input type="search" placeholder="Search" aria-label="Search" />
+      <button type="submit">Search</button>
+    </form>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </header>
 
-<section id="hero" class="hero">
-    <canvas id="hero-canvas"></canvas>
-    <div class="hero-content">
-        <h1>About us</h1>
-        <p>This is the personal hub of young tech‑enthusiast from Italy, Juel known as TechnoBoy  </p>
-        <a href="#projects" class="btn btn-primary">Our Projects</a>
-    </div>
+<!-- HERO -->
+<section id="hero" class="hero" aria-hidden="false">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-content">
+    <h1>About Us</h1>
+    <p>This is the personal hub of a young tech-enthusiast from Italy — Juel, known as <strong>TechnoBoy</strong>.</p>
+    <a href="#bio" class="btn btn-primary">Learn more</a>
+  </div>
 </section>
 
+<!-- MAIN: container with alternating sections -->
+<main class="main container">
+
+  <!-- BIO (card) -->
+  <section id="bio" class="section card" aria-labelledby="bio-heading">
+    <div class="bio-grid">
+      <div class="avatar-wrap">
+        <img src="img/avatar.jpg" alt="TechnoBoy avatar" class="avatar">
+        <p class="muted small">Juel — TechnoBoy</p>
+        <p class="muted small">Italy • 19 • Student & tinkerer</p>
+      </div>
+
+      <div class="bio-content">
+        <h2 id="bio-heading">Who is TechnoBoy?</h2>
+        <p>Juel (TechnoBoy) builds, experiments and documents tech projects — from Minecraft server builds and Redstone contraptions to ESP32 smart-home experiments and self-hosted dashboards. He’s learning C++ and web development while running the <em>NextLevel</em> ecosystem: a Minecraft server, home automation, and personal hosting projects.</p>
+
+        <p>This hub is a place to share progress, document how-tos, and host project demos. Expect screenshots, project pages, and downloadable configs as things get polished.</p>
+
+        <div class="cta-row">
+          <a href="work_in_progress.html" class="btnabout">Portfolio</a>
+          <a href="work_in_progress.html" class="btnabout">Minecraft Server</a>
+          <a href="#skills" class="btnabout">Skills</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK STATS (card row) -->
+  <section id="stats" class="section card" aria-label="Quick stats">
+    <div class="stats-row">
+      <div class="stat">
+        <h3>9+</h3>
+        <p class="muted small">Major Builds</p>
+      </div>
+      <div class="stat">
+        <h3>Ryzen 5 5600X & RX 6700XT</h3>
+        <p class="muted small">Main PC</p>
+      </div>
+      <div class="stat">
+        <h3>Alpine</h3>
+        <p class="muted small">Server OS (Docker)</p>
+      </div>
+      <div class="stat">
+        <h3>NextLevel</h3>
+        <p class="muted small">Self-hosted projects</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS GRID (cards inside grid) -->
+  <section id="skills" class="section" aria-labelledby="skills-heading">
+    <h2 id="skills-heading" class="section-title">Skills & Interests</h2>
+    <div class="projects-grid grid-4">
+      <article class="project-card card">
+        <h3>Minecraft Builds & Servers</h3>
+        <p>Complex builds, farms, and world design. Near-vanilla gameplay with Fabric optimizations.</p>
+      </article>
+
+      <article class="project-card card">
+        <h3>Smart Home & ESP32</h3>
+        <p>RGB syncing, ESP32 integrations, Home Assistant automations and Google Nest integrations.</p>
+      </article>
+
+      <article class="project-card card">
+        <h3>Self-hosting & DevOps</h3>
+        <p>Docker, Alpine Linux, static sites, and small service orchestration for personal projects.</p>
+      </article>
+
+      <article class="project-card card">
+        <h3>C++ & Web Fundamentals</h3>
+        <p>Learning C++, practicing algorithms, and building small web UIs and tools.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- TIMELINE (simple) -->
+  <section id="timeline" class="section card" aria-labelledby="timeline-heading">
+    <h2 id="timeline-heading">Timeline</h2>
+    <ul class="timeline-list">
+      <li><strong>2024 —</strong> Started the NextLevelHost idea and initial GitHub pages.</li>
+      <li><strong>2025 —</strong> Migrated services to Alpine Linux + Docker; built main NextLevel Minecraft area (Naruto-themed).</li>
+      <li><strong>2025 —</strong> Planning bigger portfolio pages and project writeups; working on V6 PC case project.</li>
+    </ul>
+  </section>
+
+  <!-- CONTACT / CTA -->
+  <section id="contact-cta" class="section card contact-card" aria-labelledby="contact-heading">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <h2 id="contact-heading">Want to collab or ask something?</h2>
+        <p>If you want to collaborate, test a mod, or just ask a question — ping me. For now there's a placeholder contact link; replace it with an email or contact form later.</p>
+      </div>
+
+      <div class="contact-right">
+        <div class="project-card cta-box">
+          <p class="muted small"><strong>Email</strong></p>
+          <p class="muted">juel@nextlevelhost.eu (placeholder)</p>
+          <a href="mailto:juel@nextlevelhost.eu" class="btnabout btn-primary">Send an email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
 <footer class="footer">
-    <p>&copy; 2025 NextLevelHost. All rights reserved.</p>
+  <p>&copy; 2025 NextLevelHost. All rights reserved.</p>
 </footer>
 
+<script src="js/navbar.js"></script>
+<script src="js/particles.js"></script>
+
+<!-- reveal script -->
 <script>
-// MOBILE NAV TOGGLE
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.querySelector('.nav-links');
-const searchForm = document.querySelector('.search-form');
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    searchForm.classList.toggle('active');
+document.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('.section');
+  if('IntersectionObserver' in window){
+    const obs = new IntersectionObserver(entries=>{
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.18 });
+    sections.forEach(s => obs.observe(s));
+  } else {
+    sections.forEach(s => s.classList.add('visible'));
+  }
 });
-
-// PARTICLE HERO
-const hero = document.getElementById('hero');
-const canvas = document.getElementById('hero-canvas');
-const ctx = canvas.getContext('2d');
-
-const words = ["<div>", "<span>", "<header>", "<footer>", "<section>", "<article>", "<nav>", "<aside>", "<h1>", "<h2>", "<h3>", "<p>", "<a>", "<ul>", "<li>", "<img>", "<button>", "<form>", "<input>", "<label>", "class", "void", "int", "double", "block", "item", "craft", "spawn", "mob", "redstone", "server", "host", "plugin", "dashboard", "ESP32", "RGB", "smartHome", "network", "nextLevel"];
-
-let particlesArray = [];
-
-function resizeCanvas() {
-    canvas.width = hero.offsetWidth;
-    canvas.height = hero.offsetHeight;
-}
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
-
-class Particle {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.word = words[Math.floor(Math.random() * words.length)];
-        this.baseSize = Math.random() * 18 + 12;
-        this.size = this.baseSize;
-        this.sizeDirection = Math.random() > 0.5 ? 1 : -1;
-        this.speedX = Math.random() * 1 - 0.5;
-        this.speedY = Math.random() * 1 - 0.5;
-        this.opacity = Math.random() * 0.5 + 0.3;
-    }
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        this.size += 0.05 * this.sizeDirection;
-        if(this.size > this.baseSize + 5 || this.size < this.baseSize - 5) this.sizeDirection *= -1;
-        if(this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-        if(this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-    }
-    draw() {
-        ctx.fillStyle = `rgba(0, 200, 255,${this.opacity})`;
-        ctx.font = `${this.size}px monospace`;
-        ctx.fillText(this.word, this.x, this.y);
-    }
-}
-function initParticles(count) {
-    particlesArray = [];
-    for(let i=0;i<count;i++) particlesArray.push(new Particle());
-}
-initParticles(80);
-function connectParticles() {
-    for(let a=0;a<particlesArray.length;a++){
-        for(let b=a+1;b<particlesArray.length;b++){
-            const dx = particlesArray[a].x - particlesArray[b].x;
-            const dy = particlesArray[a].y - particlesArray[b].y;
-            const distance = Math.sqrt(dx*dx + dy*dy);
-            if(distance < 150){
-                ctx.strokeStyle = `rgba(0,200,255,0.1)`;
-                ctx.lineWidth = 1;
-                ctx.beginPath();
-                ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-                ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-                ctx.stroke();
-            }
-        }
-    }
-}
-function animate() {
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    particlesArray.forEach(p => { p.update(); p.draw(); });
-    connectParticles();
-    requestAnimationFrame(animate);
-}
-animate();
-
 </script>
 
 </body>

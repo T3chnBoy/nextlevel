@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NextLevelHost — Home</title>
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/style-home.css">
+<link rel="stylesheet" href="css/style-about.css">
 </head>
 <body>
 
@@ -14,18 +14,18 @@
         <div class="logo"><a href="index.html">NextLevelHost</a></div>
         <nav class="nav-links">
             <a href="#" class="active">Home</a>
-            <a href="about.html">About</a>
+            <a href="#about">About</a>
             <div class="dropdown">
                 <a href="#" class="dropbtn">Progetti ▾</a>
                 <div class="dropdown-content">
-                    <a href="work_in_progress.html">This_Project</a>
-                    <a href="work_in_progress.html">V6 PC Case</a>
+                    <a href="#">This_Project</a>
+                    <a href="#">V6 PC Case</a>
                     <br>
                     <a href="#">Future Projects</a>
                 </div>
             </div>
-            <a href="work_in_progress.html">Portfolio</a>
-            <a href="work_in_progress.html">Minecraft</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#minecraft">Minecraft</a>
             <a href="#" class="disabled">Contacts</a>
         </nav>
         <form class="search-form">
@@ -41,36 +41,9 @@
 <section id="hero" class="hero">
     <canvas id="hero-canvas"></canvas>
     <div class="hero-content">
-        <h1>What is NextLevelHost?</h1>
-        <p>TechnoBoy's creative hub for Minecraft, tech projects, and more!</p>
+        <h1>About us</h1>
+        <p>This is the personal hub of young tech‑enthusiast from Italy, Juel known as TechnoBoy  </p>
         <a href="#projects" class="btn btn-primary">Our Projects</a>
-    </div>
-</section>
-
-<section id="about" class="section">
-    <div class="container">
-        <h2>About Us</h2>
-        <p>NextLevelHost is a place where creativity meets technology. This is TechnoBoy's playground where he focuses on Minecraft, smart home setups, coding projects, and self-hosted solutions.</p>
-    </div>
-</section>
-
-<section id="projects" class="section">
-    <div class="container">
-        <h2>Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <img src="img/project1.jpg" alt="Project 1">
-                <h3>Project 1</h3>
-                <p>Short description about Project 1</p>
-                <a href="projects/work_in_progress.html" class="btn btn-primary">View</a>
-            </div>
-            <div class="project-card">
-                <img src="img/project2.jpg" alt="Project 2">
-                <h3>Project 2</h3>
-                <p>Short description about Project 2</p>
-                <a href="projects/work_in_progress.html" class="btn btn-primary">View</a>
-            </div>
-        </div>
     </div>
 </section>
 
@@ -160,12 +133,6 @@ function animate() {
 }
 animate();
 
-// SCROLL ANIMATION
-const sections = document.querySelectorAll('.section');
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
-}, { threshold: 0.2 });
-sections.forEach(section => observer.observe(section));
 </script>
 
 </body>

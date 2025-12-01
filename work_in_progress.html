@@ -65,7 +65,7 @@ class Particle {
         if(this.y < 0 || this.y > canvas.height) this.speedY *= -1;
     }
     draw() {
-        ctx.fillStyle = `rgba(0, 200, 255, ${this.opacity})`;
+        ctx.fillStyle = `rgba(255,255,255,${this.opacity})`;
         ctx.font = `${this.size}px monospace`;
         ctx.fillText(this.word, this.x, this.y);
     }
@@ -108,4 +108,3 @@ animate();
 
 </body>
 </html>
-

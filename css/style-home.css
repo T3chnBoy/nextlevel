@@ -1,7 +1,7 @@
 /* =========================
-   HERO HOME
+   HERO
 ========================= */
-.hero-home {
+.hero {
     height: 35vh;
     display: flex;
     flex-direction: column;
@@ -13,11 +13,11 @@
     overflow: hidden;
     position: relative;
 }
-.hero-home h1 { font-size: 3rem; margin-bottom: 1rem; }
-.hero-home p { font-size: 1.5rem; margin-bottom: 2rem; }
+.hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+.hero p { font-size: 1.5rem; margin-bottom: 2rem; }
 
 /* HERO CANVAS */
-#hero-canvas-home {
+#hero-canvas {
     position: absolute;
     top: 0;
     left: 0;

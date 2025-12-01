@@ -1,0 +1,150 @@
+/* about.css - light-first rectangular sections with alternating backgrounds */
+
+/* base variables (light) */
+:root{
+  --bg: #f8fafc;
+  --card-bg: #ffffff;
+  --card-alt: #f6f9fb;    /* alternate very-light gray */
+  --muted: #6b7280;
+  --text: #0f1724;
+  --primary-color: #00c8ff;
+  --secondary-color: #203a43;
+  --card-radius: 12px;
+  --container-max: auto;
+}
+
+/* page bg & body spacing for fixed navbar */
+body { background: var(--bg); color: var(--text); padding-top: var(--navbar-height); }
+
+/* container */
+.main.container {
+  padding: 2rem 1.25rem;
+}
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+
+/* unify card basic style (we will let sections alternate bg) */
+.card {
+  border-radius: var(--card-radius);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 20px rgba(12,18,30,0.04);
+  border: 1px solid rgba(2,6,23,0.03);
+}
+
+/* ALTERNATING SECTION BACKGROUNDS
+   use nth-of-type on the children of .main to alternate backgrounds */
+.main .section {
+  padding: 1.5rem;
+  transition: background 0.18s ease, transform 0.15s ease;
+  border-radius: var(--card-radius);
+}
+
+/* odd = white card (default) */
+.main .section:nth-of-type(odd) {
+  background: var(--card-bg);
+}
+
+/* even = very light gray */
+.main .section:nth-of-type(even) {
+  background: var(--card-alt);
+}
+
+/* hover lift */
+.main .section:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(12,18,30,0.06); }
+
+/* bio grid */
+.bio-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+.avatar {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  display:block;
+  margin: 0 auto;
+  border: 4px solid rgba(0,200,255,0.08);
+}
+
+/* small muted helper classes */
+.muted { color: var(--muted); }
+.small { font-size:0.85rem; }
+
+/* cta row */
+.cta-row { margin-top:1rem; display:flex; gap:0.6rem; flex-wrap:wrap; }
+
+/* stats row */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  text-align:center;
+  align-items:center;
+  padding: 0.5rem 0;
+}
+.stats-row .stat h3 { margin:0; color: var(--primary-color); font-size:1.4rem; }
+.stats-row .stat p { margin: 0; color: var(--muted); }
+
+/* skills grid */
+.projects-grid.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top:1rem;
+}
+.project-card { background: transparent; box-shadow: none; border: none; padding: 1rem; border-radius: 10px; text-align:left; color: var(--text); }
+.project-card h3 { margin-top:0; color: var(--secondary-color); font-size:1.02rem; }
+
+/* timeline */
+.timeline-list { padding-left: 0; list-style: none; color: var(--text); }
+.timeline-list li { margin-bottom:0.6rem; color: var(--muted); }
+
+/* contact grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1rem;
+  align-items:center;
+}
+.cta-box { padding:1rem; border-radius:10px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02)); }
+
+/* section title */
+.section-title { margin: 0 0 1rem 0; color: var(--secondary-color); }
+.section-title::after { content: ''; display:block; width:48px; height:4px; background: var(--primary-color); border-radius:3px; margin-top:8px; }
+
+/* responsive rules */
+@media (max-width: 1100px){
+  .projects-grid.grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px){
+  .bio-grid { grid-template-columns: 1fr; text-align:center; }
+  .avatar { margin: 0 auto 0.75rem; }
+  .projects-grid.grid-4 { grid-template-columns: 1fr; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  body { padding-top: calc(var(--navbar-height) + 6px); }
+}
+
+/* reveal animation support */
+.section { opacity: 0; transform: translateY(20px); transition: all 0.7s ease; }
+.section.visible { opacity: 1; transform: translateY(0); }
+
+.btnabout {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    border: 2px solid #000000;
+    color: #00c8ff;
+    text-decoration: none;
+    transition: 0.3s ease;
+}

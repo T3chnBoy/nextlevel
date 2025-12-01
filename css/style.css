@@ -190,3 +190,16 @@ html, body {
 
 /* FOOTER */
 .footer { padding: 2rem 0; background: #111; color: #777; text-align: center; }
+
+/* quick fixes: body padding for fixed navbar, smooth scroll, ensure hero isn't overlapping sections */
+
+html { scroll-behavior: smooth; }
+body { padding-top: var(--navbar-height); }
+
+/* ensure hero doesn't block clicks/scroll and sections visible if JS fails */
+.hero { min-height: 60vh; } /* evita eroi 100vh che nascondono tutto su schermi piccoli */
+.section { opacity: 0; transform: translateY(20px); transition: all 0.8s ease; }
+.section.visible { opacity: 1; transform: translateY(0); }
+
+/* fallback: if JS non disponibile mostra comunque i contenuti */
+.no-js .section { opacity: 1; transform: none; }

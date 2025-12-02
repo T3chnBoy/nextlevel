@@ -1,1 +1,135 @@
 
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NextLevelHost — Home</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet" href="css/style-home.css">
+
+</head>
+
+<body>
+
+
+
+<header class="navbar">
+
+    <div class="container navbar-container">
+
+        <div class="logo"><a href="index.html">NextLevelHost</a></div>
+
+        <nav class="nav-links">
+
+            <a href="home.html" class="active">Home</a>
+
+            <a href="about.html">About</a>
+
+            <div class="dropdown">
+
+                <a href="#" class="dropbtn">Progetti ▾</a>
+
+                <div class="dropdown-content">
+
+                    <a href="work_in_progress.html">This_Project</a>
+
+                    <a href="work_in_progress.html">V6 PC Case</a>
+
+                    <br>
+
+                    <a href="#">Future Projects</a>
+
+                </div>
+
+            </div>
+
+            <a href="work_in_progress.html">Portfolio</a>
+
+            <a href="work_in_progress.html">Minecraft</a>
+
+            <a href="#" class="disabled">Contacts</a>
+
+        </nav>
+
+        <form class="search-form">
+
+            <input type="text" placeholder="Search">
+
+            <button type="submit">Search</button>
+
+        </form>
+
+        <div class="hamburger" id="hamburger">
+
+            <span></span><span></span><span></span>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<section id="hero" class="hero">
+
+    <canvas id="hero-canvas"></canvas>
+
+    <div class="hero-content">
+
+        <h1>My Portofolio</h1>
+
+        <p>TechnoBoy's portofolio showcasing his skills/abilities and projects</p>
+
+        <a href="#projects" class="btn btn-primary">Our Projects</a>
+
+    </div>
+
+</section>
+
+
+
+<
+
+
+<footer class="footer">
+
+    <p>&copy; 2025 NextLevelHost. All rights reserved.</p>
+
+</footer>
+
+
+
+<script src="js/navbar.js"></script>
+
+<script src="js/particles.js"></script>
+
+<script>
+
+// SCROLL ANIMATION
+
+const sections = document.querySelectorAll('.section');
+
+const observer = new IntersectionObserver(entries=>{
+
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+
+},{ threshold: 0.2 });
+
+sections.forEach(s=>observer.observe(s));
+
+</script>
+
+
+
+</body>
+
+</html>
